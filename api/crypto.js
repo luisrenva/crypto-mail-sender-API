@@ -37,7 +37,7 @@ module.exports = {
     apiCall('xrp', 0.25, 1.80)
   },
   getMana: () => {
-    apiCall('mana', 0.10, 1.63 )
+    apiCall('mana', 0.10, 4)
   },
   // testEmail: () => {
   //   email.sendEmail('1', 'testing emails sender')
