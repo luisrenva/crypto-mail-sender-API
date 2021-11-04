@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer')
-const constants = require('../api/constants');
+// const constants = require('../api/constants')
 
-// let emails = 'ngvv14@gmail.com, luis.renva@gmail.com, diego.s.ibarra@gmail.com, aguilavajz@gmail.com'
 exports.sendEmail = (price, cryptoName) => {
   const transporter = nodemailer.createTransport({
     service: 'outlook',
@@ -13,7 +12,8 @@ exports.sendEmail = (price, cryptoName) => {
 
   var mailOptions = {
     from: process.env.HOTMAIL_USER,
-    to: constants.emails,
+    to: process.env.EMAILS,
+    // to: constants.emails,
     subject: 'Changes in ' + cryptoName + '!!!!!!',
     text: 'Current ' + cryptoName + ' price::::: ' + price
   };

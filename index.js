@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./api/users')
 
+
 const app = express()
 app.use(cors())
 let count = 0
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */2 * * * *', () => {
   console.log('********** 2 hours call  **********')
+  // crypto.createJson() TODO: create a Json file and read emails from there
   crypto.getBitCoin()
   crypto.getEtherumClassic()
   crypto.getDodgeCoin()
@@ -32,11 +34,11 @@ cron.schedule('0 0 */2 * * * *', () => {
   crypto.getBitCoinCash()
   crypto.getXRP()
   crypto.getMana()
-  // crypto.testEmail()
 })
 
 
 const port = process.env.PORT || 3000
+console.log('*******Emails::::  '+process.env.EMAILS)
 // starting the server
 app.listen(port, () => {
   console.log('*********************************')

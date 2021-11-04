@@ -1,14 +1,11 @@
 const axios = require('axios')
 const email = require('../email/send-email')
+const fs = require('fs')
 
 let dailyMail = 0
 
 module.exports = {
   getBitCoin: () => {
-    if (dailyMail === 11) {
-      console.log('************** DailyMail :: ' + dailyMail + '**************')
-      dailyMail = 0
-    }
     console.log('**********************')
     console.log(dailyMail)
     console.log('**********************')
@@ -39,9 +36,13 @@ module.exports = {
   getMana: () => {
     apiCall('mana', 0.10, 4)
   },
-  // testEmail: () => {
-  //   email.sendEmail('1', 'testing emails sender')
-  // },
+  createJson: (emails) => {
+    //append data to a file. If the file does not exist, it's created
+    fs.appendFile('emails.json', emails , (err) => {
+      if (err) throw err;
+      console.log('Saved!!!!!');
+    });
+  }
 };
 
 const apiCall = (cryptoName, min, max) => {
