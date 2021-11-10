@@ -2,15 +2,9 @@ const axios = require('axios')
 const email = require('../email/send-email')
 const fs = require('fs')
 
-let dailyMail = 0
-
 module.exports = {
   getBitCoin: () => {
-    console.log('**********************')
-    console.log(dailyMail)
-    console.log('**********************')
-    dailyMail ++
-    apiCall('btc', 40000, 66000)
+    apiCall('btc', 40000, 69000)
   },
   getEtherumClassic: () => {
     apiCall('etc', 40, 77)
