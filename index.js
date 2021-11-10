@@ -21,6 +21,7 @@ app.use('/api', routes)
 app.get('/', (req, res) => {
   res.send('------------- Running: ' + count++ + '------------- ')
 })
+
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */2 * * * *', () => {
   console.log('********** 2 hours call  **********')
