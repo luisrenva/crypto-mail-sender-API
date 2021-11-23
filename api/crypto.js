@@ -28,7 +28,7 @@ module.exports = {
     apiCall('xrp', 0.25, 1.80)
   },
   getMana: () => {
-    apiCall('mana', 0.10, 4)
+    apiCall('mana', 0.10, 4.80)
   },
   createJson: (emails) => {
     //append data to a file. If the file does not exist, it's created
