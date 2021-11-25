@@ -28,7 +28,7 @@ module.exports = {
     apiCall('xrp', 0.25, 1.80)
   },
   getMana: () => {
-    apiCall('mana', 0.10, 5.10)
+    apiCall('mana', 0.10, 5.50)
   },
   createJson: (emails) => {
     //append data to a file. If the file does not exist, it's created
@@ -43,8 +43,10 @@ const apiCall = (cryptoName, min, max) => {
   console.log('************ Calling ' + cryptoName + '************');
   axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics')
     .then((response) => {
-      if ( response.data.data.market_data.price_usd !== null && response.data.data.market_data.price_usd >= max || response.data.data.market_data.price_usd <= min) {
-        console.log('*************** Sending email to::: '+cryptoName)
+      console.log('******** price:: '+response.data.data.market_data.price_usd)
+      if (response.data.data.market_data.price_usd !== null && (response.data.data.market_data.price_usd >= max || 
+        response.data.data.market_data.price_usd <= min)) {
+        console.log('*************** Sending email to::: '+response.data.data.name)
         email.sendEmail(parseFloat(response.data.data.market_data.price_usd), response.data.data.name)
       }
     }).catch((error) => {
