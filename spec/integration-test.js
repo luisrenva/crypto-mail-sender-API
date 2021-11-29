@@ -1,48 +1,48 @@
-var selenium = require('selenium-webdriver');
+// var selenium = require('selenium-webdriver');
 
-describe('Selenium Tutorial', () => {
+// describe('Selenium Tutorial', () => {
 
-  // Open the TECH.insight website in the browser before each test is run
-  beforeEach((done) => {
+//   // Open the TECH.insight website in the browser before each test is run
+//   beforeEach((done) => {
 
-    // originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    // jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000;
+//     // originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+//     // jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000000;
 
-    this.driver = new selenium.Builder().
-    withCapabilities(selenium.Capabilities.chrome()).build();
+//     this.driver = new selenium.Builder().
+//     withCapabilities(selenium.Capabilities.chrome()).build();
 
-    // this.driver.get('http://www.google.com/').then(done)
-    this.driver.get('http://www.techinsight.io/').then(done);
-  });
+//     // this.driver.get('http://www.google.com/').then(done)
+//     this.driver.get('http://www.techinsight.io/').then(done);
+//   });
 
-  // Close the website after each test is run (so that it is opened fresh each time)
-  afterEach((done) => {
-    // jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
-    this.driver.quit().then(done);
-  });
+//   // Close the website after each test is run (so that it is opened fresh each time)
+//   afterEach((done) => {
+//     // jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+//     this.driver.quit().then(done);
+//   });
 
-  // Test to ensure we are on the home page by checking the <body> tag id attribute
-  it('Should be on the home page', (done) => {
-    var element = this.driver.findElement(selenium.By.tagName('body'));
+//   // Test to ensure we are on the home page by checking the <body> tag id attribute
+//   it('Should be on the home page', (done) => {
+//     var element = this.driver.findElement(selenium.By.tagName('body'));
 
-    element.getAttribute('id').then((id) => {
-      expect(id).toBe('home');
-      done();
-    });
-  });
+//     element.getAttribute('id').then((id) => {
+//       expect(id).toBe('home');
+//       done();
+//     });
+//   });
 
-  // Test the navigation bar by clicking on the 'REVIEW' link and checking the URL changes to '/review'
-  // it('Has a working nav', function(done) {
-  //     var element = this.driver.findElement(selenium.By.linkText('REVIEW'));
+//   // Test the navigation bar by clicking on the 'REVIEW' link and checking the URL changes to '/review'
+//   // it('Has a working nav', function(done) {
+//   //     var element = this.driver.findElement(selenium.By.linkText('REVIEW'));
 
-  //     element.click();
+//   //     element.click();
 
-  //     this.driver.getCurrentUrl().then(function(value) {
-  //         expect(value).toContain('/review');
-  //         done();
-  //     });
-  // });
-});
+//   //     this.driver.getCurrentUrl().then(function(value) {
+//   //         expect(value).toContain('/review');
+//   //         done();
+//   //     });
+//   // });
+// });
 
 // var selenium     = require('selenium-webdriver');
 // jasmine.getEnv().defaultTimeoutInterval = 10000; // in microseconds.
