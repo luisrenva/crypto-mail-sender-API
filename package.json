@@ -4,7 +4,7 @@
   "description": "This app will read values from crypto API",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine spec/integration-test.js",
+    "test": "jasmine spec/",
     "start": "nodemon index.js"
   },
   "keywords": [],
