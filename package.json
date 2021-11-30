@@ -4,7 +4,7 @@
   "description": "This app will read values from crypto API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "npx nodemon index.js"
   },
   "keywords": [],
   "author": "Luis Renteria Valencia",
@@ -22,6 +22,6 @@
     "nodemailer": "^6.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.15"
   }
 }
