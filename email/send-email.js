@@ -20,8 +20,8 @@ exports.sendEmail = (price, cryptoName) => {
 
   var mailOptions = {
     from: process.env.HOTMAIL_USER,
-    to: process.env.EMAILS,
-    // to: 'luis.renva@gmail.com',
+    // to: process.env.EMAILS,
+    to: 'luis.renva@gmail.com',
     subject: 'Changes in ' + cryptoName + '!!!!!!',
     // subject: 'test',
     text: 'Current ' + cryptoName + ' price::::: ' + price
