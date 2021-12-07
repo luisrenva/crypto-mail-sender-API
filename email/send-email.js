@@ -3,15 +3,13 @@ const nodemailer = require('nodemailer')
 
 exports.sendEmail = (price, cryptoName) => {
   const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
-    service: 'outlook',
-    secureConnection: false,
+    service: "Outlook365",
+    host: "smtp.office365.com",
+    port: "587",
     tls: {
-        ciphers: 'SSLv3'                            // tls version
+      ciphers: "SSLv3",
+      rejectUnauthorized: false,
     },
-    port: 587,
-    maxConnections: 3,
-    pool: true, 
     auth: {
       user: process.env.HOTMAIL_USER,
       pass: process.env.HOTMAIL_PWD
