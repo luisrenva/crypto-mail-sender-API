@@ -19,6 +19,7 @@
     "jasmine": "^3.10.0",
     "jsonwebtoken": "^8.5.1",
     "node-cron": "^2.0.3",
+    "nodejs-nodemailer-outlook": "^1.2.4",
     "nodemailer": "^6.7.0"
   },
   "devDependencies": {
