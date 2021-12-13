@@ -9,7 +9,7 @@ module.exports = {
     apiCall('btc', 40000, 69000)
   },
   getEtherumClassic: () => {
-    apiCall('etc', 40, 77)
+    apiCall('etc', 30, 77)
   },
   getDodgeCoin: () => {
     apiCall('doge', 0.10, 0.50)
@@ -24,7 +24,7 @@ module.exports = {
     apiCall('shib', 0.000010, 0.10)
   },
   getBitCoinCash: () => {
-    apiCall('bch', 480, 1300)
+    apiCall('bch', 420, 1300)
   },
   getXRP: () => {
     apiCall('xrp', 0.25, 1.80)
