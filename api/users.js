@@ -25,11 +25,28 @@ router.put('/updateParametes/:crypto', (req, res) => {
   let crypto = req.body.crypto
   const { min, max, email } = req.body
   // here I call the crypto and pass the new min and max for updating parameters
-  if (crypto === 'btc') {
-    // cryptoService.getBitCoin(crypto, min, max)    
+  if (crypto === 'btc') { 
+    constants.maxBTC = max
+    constants.minBTC = min
+  }
+  if (crypto === 'etc') {
+    constants.maxETC = max
+    constants.minETC = min
+  }
+  if (crypto === 'doge') {
+    constants.maxDOGE = max
+    constants.minDOGE = min
+  }
+  if (crypto === 'bsv') {
+    constants.maxBSV = max
+    constants.minBSV = min
+  }
+  if (crypto === 'ltc') {
+    constants.maxLTC = max
+    constants.minLTC = min
   }
 
-  return 'Data updated'
+  return '********** DATA UPDATED **********'
 })
 
 router.post('/register', async (req, res) => {

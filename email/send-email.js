@@ -14,7 +14,6 @@ exports.sendEmail = (body) => {
   var mailOptions = {
     from: process.env.HOTMAIL_USER,
     to: process.env.EMAILS,
-    // to: 'luis.renva@gmail.com, ngvv14@gmail.com',
     subject: 'Change in Crypto(s) !!!!!!',
     html: `Below the crypto(s) that meet the criterias: ` + `<br><br>`+ body
   };
