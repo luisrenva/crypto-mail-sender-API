@@ -21,7 +21,7 @@ module.exports = {
     apiCall('bsv', constants.minBSV, constants.maxBSV)
   },
   getLTC: () => {
-    apiCall('ltc', constants.minLTC, constants.maxLTC)
+    apiCall('litecoin', constants.minLTC, constants.maxLTC)
   },
   getShib: () => {
     apiCall('shib', constants.minShib, constants.maxShib)
@@ -33,7 +33,7 @@ module.exports = {
     apiCall('xrp', constants.minXRP, constants.maxXRP)
   },
   getMana: () => {
-    apiCall('mana', constants.minMana, constants.maxMana)
+    apiCall('decentraland', constants.minMana, constants.maxMana)
   },
   createJson: (emails) => {
     //append data to a file. If the file does not exist, it's created
