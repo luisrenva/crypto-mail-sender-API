@@ -24,7 +24,11 @@ router.get('/healthy', (req, res) => {
 router.put('/updateParametes/:crypto', (req, res) => {
   // let crypto = req.body.crypto
   const { crypto } = req.params
+  console.log('Crypto:  '+crypto)
   const { min, max, email } = req.body
+  console.log('min:  '+min)
+  console.log('max:  '+max)
+  console.log('email:  '+email)
   // here I call the crypto and pass the new min and max for updating parameters
   if (crypto === 'btc') { 
     constants.maxBTC = max
@@ -48,6 +52,8 @@ router.put('/updateParametes/:crypto', (req, res) => {
   }
   return res.send('********** DATA UPDATED **********')
 })
+
+// TODO: now create a method to get constant crypto values
 
 router.post('/register', async (req, res) => {
   // Our register logic starts here

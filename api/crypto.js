@@ -27,7 +27,7 @@ module.exports = {
     apiCall('shib', constants.minShib, constants.maxShib)
   },
   getBitCoinCash: () => {
-    apiCall('bch', constants.minBitCoinCash, constants.maxBitCoingCash)
+    apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoingCash)
   },
   getXRP: () => {
     apiCall('xrp', constants.minXRP, constants.maxXRP)
@@ -45,7 +45,7 @@ module.exports = {
 };
 
 const apiCall = async (cryptoName, min, max) => {
-  await axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics')
+  await axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics/market-data')
     .then((response) => {
       // console.log('******** Crypto name and price:: ' + cryptoName + '  ' + parseFloat(response.data.data.market_data.price_usd).toFixed(5))
       index++
