@@ -17,12 +17,16 @@ router.post('/addUserInputs', (req, res) => {
   return res.send('Inserted successfully')
 })
 
+router.get('/getMinMaxValues', (req, res) => {
+  console.log(JSON.stringify(constants, null, 4))
+  return res.send(constants)
+})
+
 router.get('/healthy', (req, res) => {
   return res.send('Healthy')
 })
 
 router.put('/updateParametes/:crypto', (req, res) => {
-  // let crypto = req.body.crypto
   const { crypto } = req.params
   console.log('Crypto:  '+crypto)
   const { min, max, email } = req.body
@@ -50,6 +54,27 @@ router.put('/updateParametes/:crypto', (req, res) => {
     constants.maxLTC = max
     constants.minLTC = min
   }
+  if (crypto === 'Bitcoin-Cash') {
+    constants.maxBitCoinCash = max
+    constants.minBitCoinCash = min
+  }
+
+  if (crypto === 'decentraland') { //Mana
+    constants.maxMana = max
+    constants.minMana = min
+  }
+
+  if (crypto === 'xrp') {
+    constants.maxXRP = max
+    constants.minXRP = min
+  }
+
+  if (crypto === 'shib') {
+    constants.maxShib = max
+    constants.minShib = min
+  }
+
+
   return res.send('********** DATA UPDATED **********')
 })
 

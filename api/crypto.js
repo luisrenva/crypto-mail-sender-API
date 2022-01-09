@@ -27,7 +27,7 @@ module.exports = {
     apiCall('shib', constants.minShib, constants.maxShib)
   },
   getBitCoinCash: () => {
-    apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoingCash)
+    apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoinCash)
   },
   getXRP: () => {
     apiCall('xrp', constants.minXRP, constants.maxXRP)
