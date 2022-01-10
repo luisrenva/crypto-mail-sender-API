@@ -12,7 +12,7 @@ module.exports = {
   maxLTC: 370,
   minShib: 0.000010,
   maxShib: 0.10,
-  minBitCoinCash: 420,
+  minBitCoinCash: 350,
   maxBitCoinCash: 1300,
   minXRP: 0.25,
   maxXRP: 1.80,

@@ -18,9 +18,9 @@ app.use(bodyParser.json())
 // all of our routes will be prefixed with /api
 app.use('/api', routes)
 
-app.get('/', (req, res) => {
-  res.send('------------- Running: ' + count++ + '------------- ')
-})
+// app.get('/', (req, res) => {
+//   res.send('------------- Running: ' + count++ + '------------- ')
+// })
 
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */2 * * * *', () => {
