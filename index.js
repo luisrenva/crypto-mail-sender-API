@@ -23,7 +23,7 @@ app.use('/api', routes)
 // })
 
 // Schedule tasks to be run on the server.
-cron.schedule('0 0 */2 * * * *', () => {
+cron.schedule('0 0 */3 * * * *', () => {
   // cron.schedule('0 */1 * * * * *', () => {
   console.log('********** 2 hours call  **********')
   // crypto.createJson() TODO: create a Json file and read emails from there
