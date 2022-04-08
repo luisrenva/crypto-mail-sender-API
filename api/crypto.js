@@ -7,33 +7,31 @@ let text = ''
 let index = 0
 module.exports = {
   getBitCoin: () => {
-    apiCall('btc', constants.minBTC, constants.maxBTC)
+    await apiCall('btc', constants.minBTC, constants.maxBTC)
   },
   getEtherumClassic: () => {
-    // apiCall('etc', 30, 77)
-    apiCall('etc', constants.minETC, constants.maxETC)
+    await apiCall('etc', constants.minETC, constants.maxETC)
   },
   getDodgeCoin: () => {
-    apiCall('dogecoin', constants.minDOGE, constants.maxDOGE)
-    // apiCall('doge', 0.10, 0.50)
+    await apiCall('dogecoin', constants.minDOGE, constants.maxDOGE)
   },
   getBSV: () => {
-    apiCall('bsv', constants.minBSV, constants.maxBSV)
+    await apiCall('bsv', constants.minBSV, constants.maxBSV)
   },
   getLTC: () => {
-    apiCall('litecoin', constants.minLTC, constants.maxLTC)
+    await apiCall('litecoin', constants.minLTC, constants.maxLTC)
   },
   getShib: () => {
-    apiCall('shib', constants.minShib, constants.maxShib)
+    await apiCall('shib', constants.minShib, constants.maxShib)
   },
   getBitCoinCash: () => {
-    apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoinCash)
+    await apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoinCash)
   },
   getXRP: () => {
-    apiCall('xrp', constants.minXRP, constants.maxXRP)
+    await apiCall('xrp', constants.minXRP, constants.maxXRP)
   },
   getMana: () => {
-    apiCall('decentraland', constants.minMana, constants.maxMana)
+    await apiCall('decentraland', constants.minMana, constants.maxMana)
   },
   createJson: (emails) => {
     //append data to a file. If the file does not exist, it's created
@@ -51,14 +49,13 @@ const apiCall = async (cryptoName, min, max) => {
       index++
       if (response.data.data.market_data.price_usd !== null && (response.data.data.market_data.price_usd >= max ||
         response.data.data.market_data.price_usd <= min)) {
-        console.log('*************** Sending email for::: ' + response.data.data.name)
+        console.log('*************** Crypto name ::: ' + response.data.data.name)
         text = text + `Current ` + response.data.data.name + ` price::::: ` +
           parseFloat(response.data.data.market_data.price_usd).toFixed(5) + `<br>`
       }
     }).catch((error) => {
-      console.log('****** Error calling API ::::::' + cryptoName + '     '+JSON.stringify(error, null, 4))
+      console.log('****** Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
     })
-  // console.log('Index :: '+index)
   if (index === 9 && text !== '') {
     console.log('********** index 9 sending email(s)**********')
     email.sendEmail(text)
