@@ -6,31 +6,31 @@ const fs = require('fs')
 let text = ''
 let index = 0
 module.exports = {
-  getBitCoin: () => {
+  getBitCoin: async () => {
     await apiCall('btc', constants.minBTC, constants.maxBTC)
   },
-  getEtherumClassic: () => {
+  getEtherumClassic: async () => {
     await apiCall('etc', constants.minETC, constants.maxETC)
   },
-  getDodgeCoin: () => {
+  getDodgeCoin: async () => {
     await apiCall('dogecoin', constants.minDOGE, constants.maxDOGE)
   },
-  getBSV: () => {
+  getBSV: async () => {
     await apiCall('bsv', constants.minBSV, constants.maxBSV)
   },
-  getLTC: () => {
+  getLTC: async () => {
     await apiCall('litecoin', constants.minLTC, constants.maxLTC)
   },
-  getShib: () => {
+  getShib: async () => {
     await apiCall('shib', constants.minShib, constants.maxShib)
   },
-  getBitCoinCash: () => {
+  getBitCoinCash: async () => {
     await apiCall('Bitcoin-Cash', constants.minBitCoinCash, constants.maxBitCoinCash)
   },
-  getXRP: () => {
+  getXRP: async () => {
     await apiCall('xrp', constants.minXRP, constants.maxXRP)
   },
-  getMana: () => {
+  getMana: async () => {
     await apiCall('decentraland', constants.minMana, constants.maxMana)
   },
   createJson: (emails) => {
