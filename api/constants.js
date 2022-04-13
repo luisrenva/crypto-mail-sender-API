@@ -6,7 +6,7 @@ module.exports = {
   maxETC: 70,
   minDOGE: 0.10,
   maxDOGE: 0.50,
-  minBSV: 85,
+  minBSV: 80,
   maxBSV: 300,
   minLTC: 95,
   maxLTC: 300,
