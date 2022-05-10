@@ -4,18 +4,34 @@ var nodeoutlook = require('nodejs-nodemailer-outlook')
 
 exports.sendEmail = (body) => {
   console.log('Trying to send email function')
-    const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
-    port: 587,
-    secureConnection: false,
+  //   const transporter = nodemailer.createTransport({
+  //   // host: 'smtp-mail.outlook.com',
+  //   // host: 'smtp.live.com',
+  //   service: 'Hotmail',
+  //   // port: 587,
+  //   // secureConnection: false,
+  //   // secure: false,
+  //   // tls: {
+  //   //   ciphers: 'SSLv3'
+  //   // },
+  //   auth: {
+  //     user: process.env.HOTMAIL_USER,
+  //     pass: process.env.HOTMAIL_PWD
+  //   }
+  // });
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com", // hostname
+    secureConnection: false, // TLS requires secureConnection to be false
+    port: 587, // port for secure SMTP
     tls: {
-      ciphers: 'SSLv3'
+       ciphers:'SSLv3'
     },
     auth: {
-      user: process.env.HOTMAIL_USER,
-      pass: process.env.HOTMAIL_PWD
+        user: process.env.HOTMAIL_USER,
+        pass: process.env.HOTMAIL_PWD
     }
-  });
+});
 
   var mailOptions = {
     from: process.env.HOTMAIL_USER,
@@ -28,6 +44,15 @@ exports.sendEmail = (body) => {
   transporter.sendMail(mailOptions, (error, info) => {
     console.log(error ? error : 'Email sent: ' + info.response)
   });
+
+
+  // transporter.verify(function (error, success) {
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log("Server is ready to take our messages");
+  //   }
+  // });
 
   // nodeoutlook.sendEmail({
   //   pool: true,
