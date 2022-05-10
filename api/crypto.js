@@ -49,8 +49,8 @@ const apiCall = async (cryptoName, min, max) => {
       index++
       if (response.data.data.market_data.price_usd !== null && (response.data.data.market_data.price_usd >= max ||
         response.data.data.market_data.price_usd <= min)) {
-        console.log('*************** Crypto name ::: ' + response.data.data.name)
-        text = text + `Current ` + response.data.data.name + ` price::::: ` +
+        console.log('*************** Crypto name ::: ' + response.data.data.Asset.name)
+        text = text + `Current ` + response.data.data.Asset.name + ` price::::: ` +
           parseFloat(response.data.data.market_data.price_usd).toFixed(5) + `<br>`
       }
     }).catch((error) => {
