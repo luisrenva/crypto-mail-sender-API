@@ -3,7 +3,6 @@ var nodeoutlook = require('nodejs-nodemailer-outlook')
 // const constants = require('../api/constants')
 
 exports.sendEmail = (body) => {
-  console.log('Trying to send email function')
   //   const transporter = nodemailer.createTransport({
   //   // host: 'smtp-mail.outlook.com',
   //   // host: 'smtp.live.com',
@@ -23,7 +22,7 @@ exports.sendEmail = (body) => {
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hostname
     secureConnection: false, // TLS requires secureConnection to be false
-    port: 587, // port for secure SMTP
+    port: 587, // port for secure SMTP 
     tls: {
        ciphers:'SSLv3'
     },

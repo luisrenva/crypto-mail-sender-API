@@ -50,14 +50,13 @@ const apiCall = async (cryptoName, min, max) => {
       if (response.data.data.market_data.price_usd !== null && (response.data.data.market_data.price_usd >= max ||
         response.data.data.market_data.price_usd <= min)) {
         console.log('*************** Crypto name ::: ' + response.data.data.Asset.name)
-        text = text + `Current ` + response.data.data.Asset.name + ` price::::: ` +
-          parseFloat(response.data.data.market_data.price_usd).toFixed(5) + `<br>`
+        text = text + `Current ` + response.data.data.Asset.name + ` price:   ` +
+          parseFloat(response.data.data.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
     }).catch((error) => {
       console.log('****** Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
     })
   if (index === 9 && text !== '') {
-    console.log('********** index 9 sending email(s)**********')
     email.sendEmail(text)
     index = 0
     text = ''

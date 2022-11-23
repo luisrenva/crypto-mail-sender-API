@@ -23,19 +23,19 @@ app.use('/api', routes)
 // })
 
 // Schedule tasks to be run on the server.
-cron.schedule('0 0 */4 * * * *', () => {
+cron.schedule('0 0 */4 * * * *', async () => {
   // cron.schedule('0 */1 * * * * *', () => {
   console.log('********** 4 hours call  **********')
   // crypto.createJson() TODO: create a Json file and read emails from there
-  crypto.getBitCoin()
-  crypto.getEtherumClassic()
-  crypto.getDodgeCoin()
-  crypto.getBSV()
-  crypto.getLTC()
-  crypto.getShib()
-  crypto.getBitCoinCash()
-  crypto.getXRP()
-  crypto.getMana()
+  await crypto.getBitCoin()
+  await crypto.getEtherumClassic()
+  await crypto.getDodgeCoin()
+  await crypto.getBSV()
+  await crypto.getLTC()
+  await crypto.getShib()
+  await crypto.getBitCoinCash()
+  await crypto.getXRP()
+  await crypto.getMana()
 })
 
 
