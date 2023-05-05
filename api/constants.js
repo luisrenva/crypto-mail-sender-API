@@ -1,5 +1,5 @@
 module.exports = {
-  emails: 'ngvv14@gmail.com, luis.renva@gmail.com, diego.s.ibarra@gmail.com, aguilavajz@gmail.com, carlos_12_12@yahoo.com.mx, xavier.figueroa@outlook.com',
+  // emails: 'ngvv14@gmail.com, luis.renva@gmail.com, diego.s.ibarra@gmail.com, aguilavajz@gmail.com, carlos_12_12@yahoo.com.mx, xavier.figueroa@outlook.com, rangel_oner@yahoo.com.mx,sanarlo86@gmail.com,feojeda@gmail.com,betotsol@gmail.com',
   minBTC: 15000,
   maxBTC: 69000,
   minETC: 14,

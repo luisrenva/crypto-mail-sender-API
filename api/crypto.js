@@ -44,17 +44,19 @@ module.exports = {
 
 const apiCall = async (cryptoName, min, max) => {
   await axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics/market-data')
-    .then((response) => {
+    .then((res) => {
+      const response = res.data.data
       // console.log('******** Crypto name and price:: ' + cryptoName + '  ' + parseFloat(response.data.data.market_data.price_usd).toFixed(5))
       index++
-      if (response.data.data.market_data.price_usd !== null && (response.data.data.market_data.price_usd >= max ||
-        response.data.data.market_data.price_usd <= min)) {
-        console.log('*************** Crypto name ::: ' + response.data.data.Asset.name)
-        text = text + `Current ` + response.data.data.Asset.name + ` price:   ` +
-          parseFloat(response.data.data.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
+      if (response.market_data.price_usd !== null && (response.market_data.price_usd >= max || response.market_data.price_usd <= min)) {
+        console.log('*************** Crypto name ::: ' + response.Asset.name)
+        text = text + `Current ` + response.Asset.name + ` price:   ` +
+          parseFloat(response.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
     }).catch((error) => {
-      console.log('****** Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
+      console.log('*******************************************************************************************')
+      console.log('Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
+      console.log('*******************************************************************************************')
     })
   if (index === 9 && text !== '') {
     email.sendEmail(text)

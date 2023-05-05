@@ -4,11 +4,13 @@ const crypto = require('./api/crypto')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./api/users')
+process.env.ENVIRONMENT = 'PROD'
+require('./env')
 
 
 const app = express()
 app.use(cors())
-let count = 0
+// let count = 0
 
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,15 +19,17 @@ app.use(bodyParser.json())
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', routes)
-
 // app.get('/', (req, res) => {
 //   res.send('------------- Running: ' + count++ + '------------- ')
 // })
-
+// const date = new Date();
+// console.log('Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes())
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */4 * * * *', async () => {
-  // cron.schedule('0 */1 * * * * *', () => {
+  // cron.schedule('0 */1 * * * * *', async () => {
   console.log('********** 4 hours call  **********')
+  const date = new Date();
+  console.log('Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes())
   // crypto.createJson() TODO: create a Json file and read emails from there
   await crypto.getBitCoin()
   await crypto.getEtherumClassic()
@@ -40,7 +44,9 @@ cron.schedule('0 0 */4 * * * *', async () => {
 
 
 const port = process.env.PORT || 3000
-console.log('*******Emails::::  '+process.env.EMAILS)
+console.log('*********************************')
+console.log('Emails::::  '+process.env.EMAILS)
+console.log('*********************************')
 // starting the server
 app.listen(port, () => {
   console.log('*********************************')
