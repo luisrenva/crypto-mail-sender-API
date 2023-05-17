@@ -4,8 +4,8 @@ const crypto = require('./api/crypto')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./api/users')
-process.env.ENVIRONMENT = 'PROD'
-require('./env')
+// process.env.ENVIRONMENT = 'PROD'
+// require('./env')
 
 
 const app = express()
