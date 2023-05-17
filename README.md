@@ -2,5 +2,5 @@
 Monitor cryptos and send email according some parameters
 
 
-1.- npm insall
+1.- npm install \
 2.- npm start
