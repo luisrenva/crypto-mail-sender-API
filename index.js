@@ -10,7 +10,7 @@ require('./env')
 
 const app = express()
 app.use(cors())
-// let count = 0
+
 
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -19,11 +19,6 @@ app.use(bodyParser.json())
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', routes)
-// app.get('/', (req, res) => {
-//   res.send('------------- Running: ' + count++ + '------------- ')
-// })
-// const date = new Date();
-// console.log('Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes())
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */4 * * * *', async () => {
   // cron.schedule('0 */1 * * * * *', async () => {
