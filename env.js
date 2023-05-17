@@ -1,5 +1,0 @@
-process.env.EMAILS = process.env.ENVIRONMENT === 'PROD'  ? 'ngvv14@gmail.com, luis.renva@gmail.com, diego.s.ibarra@gmail.com, aguilavajz@gmail.com, carlos_12_12@yahoo.com.mx, xavier.figueroa@outlook.com, rangel_oner@yahoo.com.mx,sanarlo86@gmail.com,feojeda@gmail.com,betotsol@gmail.com'
-: 'luis.renva@gmail.com'
-// process.env.EMAILS = 'ngvv14@gmail.com, luis.renva@gmail.com, diego.s.ibarra@gmail.com, aguilavajz@gmail.com, carlos_12_12@yahoo.com.mx, xavier.figueroa@outlook.com, rangel_oner@yahoo.com.mx,sanarlo86@gmail.com,feojeda@gmail.com,betotsol@gmail.com'
-process.env.HOTMAIL_USER = 'lerv_a@hotmail.com'
-process.env.HOTMAIL_PWD = 'Clarissa@11'
