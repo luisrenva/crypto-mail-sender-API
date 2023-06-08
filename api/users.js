@@ -2,7 +2,7 @@ var express = require('express')
 const constants = require('./constants')
 const cryptoService = require('./crypto')
 const bcrypt = require('bcrypt')
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken')
 var router = express.Router()
 
 //TODO: create a json file to handle users instead bd for now
@@ -84,11 +84,11 @@ router.post('/register', async (req, res) => {
   // Our register logic starts here
   try {
     // Get user input
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body
 
     // Validate user input
     if (!(email && password && firstName && lastName)) {
-      res.status(400).send("All input is required");
+      res.status(400).send("All input is required")
     }
 
     // check if user already exist
@@ -127,12 +127,12 @@ router.post('/register', async (req, res) => {
       }
     );
     // save user token
-    user.token = token;
+    user.token = token
 
     // return new user
     res.status(201).json(user)
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
   // Our register logic ends here
 })
@@ -141,6 +141,6 @@ router.post('/register', async (req, res) => {
 // Login
 router.post('/login', (req, res) => {
   // our login logic goes here
-});
+})
 
 module.exports = router;

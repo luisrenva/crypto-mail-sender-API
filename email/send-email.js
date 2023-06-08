@@ -8,11 +8,11 @@ exports.sendEmail = (body) => {
     secureConnection: false, // TLS requires secureConnection to be false
     port: 587, // port for secure SMTP 
     tls: {
-       ciphers:'SSLv3'
+      ciphers:'SSLv3'
     },
     auth: {
-        user: process.env.HOTMAIL_USER,
-        pass: process.env.HOTMAIL_PWD
+      user: process.env.HOTMAIL_USER,
+      pass: process.env.HOTMAIL_PWD
     }
   })
 
