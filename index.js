@@ -22,7 +22,7 @@ app.use('/api', routes)
 // Schedule tasks to be run on the server.
 cron.schedule('0 0 */4 * * * *', async () => {
   // cron.schedule('0 */1 * * * * *', async () => {
-  const date = new Date();
+  const date = new Date()
   console.log('Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes())
   // crypto.createJson() TODO: create a Json file and read emails from there
   await crypto.getBitCoin()

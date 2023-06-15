@@ -36,11 +36,11 @@ module.exports = {
   createJson: (emails) => {
     //append data to a file. If the file does not exist, it's created
     fs.appendFile('emails.json', emails, (err) => {
-      if (err) throw err;
+      if (err) throw err
       console.log('Saved!!!!!')
-    });
+    })
   }
-};
+}
 
 const apiCall = async (cryptoName, min, max) => {
   await axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics/market-data')

@@ -24,6 +24,6 @@ exports.sendEmail = (body) => {
   }
 
   transporter.sendMail(mailOptions, (error, info) => {
-    console.log(error ? error : 'Email sent: ' + info.response)
+    console.log(error ? 'Error sending emailL '+ error : 'Email sent: ' + info.response)
   })
 }
