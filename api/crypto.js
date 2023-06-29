@@ -39,6 +39,9 @@ module.exports = {
       if (err) throw err
       console.log('Saved!!!!!')
     })
+  },
+  getTime: (optionalString, date) => {
+    return optionalString + 'Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()
   }
 }
 
@@ -64,3 +67,4 @@ const apiCall = async (cryptoName, min, max) => {
     text = ''
   }
 }
+

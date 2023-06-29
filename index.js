@@ -1,6 +1,7 @@
 const cron = require('node-cron')
 const express = require('express')
 const crypto = require('./api/crypto')
+const util = require('./utils/util')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./api/users')
@@ -21,9 +22,11 @@ app.use(bodyParser.json())
 app.use('/api', routes)
 // Schedule tasks to be run on the server.
 const scheduleTime = process.env.ENVIRONMENT === 'PROD' ? '0 0 */4 * * * *' : '0 */1 * * * * *'
+const date = new Date()
+console.log(util.getTime('Starting app at: ', date))
+
 cron.schedule(scheduleTime, async () => {
-  const date = new Date()
-  console.log('Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes())
+  console.log(util.getTime('Executing crypto calls:  ', date))
   // crypto.createJson() TODO: create a Json file and read emails from there
   await crypto.getBitCoin()
   await crypto.getEtherumClassic()
@@ -46,4 +49,4 @@ app.listen(port, () => {
   console.log('*********************************')
   console.log(`listening on port ${port}`)
   console.log('*********************************')
-});
+})
