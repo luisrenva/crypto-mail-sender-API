@@ -26,7 +26,8 @@ const date = new Date()
 console.log(util.getTime('Starting app at: ', date))
 
 cron.schedule(scheduleTime, async () => {
-  console.log(util.getTime('Executing crypto calls:  ', date))
+  const d = new Date()
+  console.log(util.getTime('Executing crypto calls:  ', d))
   // crypto.createJson() TODO: create a Json file and read emails from there
   await crypto.getBitCoin()
   await crypto.getEtherumClassic()
