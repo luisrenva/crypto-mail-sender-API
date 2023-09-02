@@ -23,6 +23,7 @@ router.get('/getMinMaxValues', (req, res) => {
 })
 
 router.get('/healthy', (req, res) => {
+  console.log('[crypto-sender] Healthy')
   return res.send('Healthy')
 })
 

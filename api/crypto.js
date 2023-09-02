@@ -39,9 +39,6 @@ module.exports = {
       if (err) throw err
       console.log('Saved!!!!!')
     })
-  },
-  getTime: (optionalString, date) => {
-    return optionalString + 'Time date:  ' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()
   }
 }
 
@@ -52,7 +49,7 @@ const apiCall = async (cryptoName, min, max) => {
       // console.log('******** Crypto name and price:: ' + cryptoName + '  ' + parseFloat(response.data.data.market_data.price_usd).toFixed(5))
       index++
       if (response.market_data.price_usd !== null && (response.market_data.price_usd >= max || response.market_data.price_usd <= min)) {
-        console.log('*************** Crypto with email name ::: ' + response.Asset.name + '****************')
+        console.log('[Crypto-Mail-Sender][info]' + '[ '+ util.getTime() + ' ]' + '  Crypto with email name : ' + response.Asset.name + '****************')
         text = text + `Current ` + response.Asset.name + ` price:   ` +
           parseFloat(response.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
