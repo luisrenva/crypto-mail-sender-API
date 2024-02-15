@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer')
-var nodeoutlook = require('nodejs-nodemailer-outlook')
-// const constants = require('../api/constants')
+const util = require('../utils/util')
 
 exports.sendEmail = (body) => {
+  console.log(util.createLogStatement('INFO', 'Sending email'))
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hostname
     secureConnection: false, // TLS requires secureConnection to be false

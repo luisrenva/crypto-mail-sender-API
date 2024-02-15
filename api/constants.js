@@ -9,7 +9,7 @@ module.exports = {
   maxBSV: 300,
   minLTC: 50,
   maxLTC: 300,
-  minShib: 0.000007,
+  minShib: 0.000006,
   maxShib: 0.10,
   minBitCoinCash: 100,
   maxBitCoinCash: 1300,

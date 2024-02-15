@@ -37,12 +37,13 @@ cron.schedule(scheduleTime, async () => {
   await crypto.getBitCoinCash()
   await crypto.getXRP()
   await crypto.getMana()
+  await crypto.resetCount()
 })
 
 
 const port = process.env.PORT || 3000
 console.log('*********************************')
-console.log('Emails::::  ' +process.env.EMAILS)
+console.log('Emails::::  ' + process.env.EMAILS)
 console.log('*********************************')
 // starting the server
 app.listen(port, () => {

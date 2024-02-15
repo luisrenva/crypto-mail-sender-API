@@ -2,6 +2,7 @@ const axios = require('axios')
 const email = require('../email/send-email')
 const constants = require('./constants')
 const fs = require('fs')
+const util = require('../utils/util')
 
 let text = ''
 let index = 0
@@ -39,6 +40,10 @@ module.exports = {
       if (err) throw err
       console.log('Saved!!!!!')
     })
+  },
+  resetCount: async () => {
+    index = 0
+    text = ''
   }
 }
 
@@ -46,10 +51,9 @@ const apiCall = async (cryptoName, min, max) => {
   await axios.get('https://data.messari.io/api/v1/assets/' + cryptoName + '/metrics/market-data')
     .then((res) => {
       const response = res.data.data
-      // console.log('******** Crypto name and price:: ' + cryptoName + '  ' + parseFloat(response.data.data.market_data.price_usd).toFixed(5))
       index++
       if (response.market_data.price_usd !== null && (response.market_data.price_usd >= max || response.market_data.price_usd <= min)) {
-        console.log('[Crypto-Mail-Sender][info]' + '[ '+ util.getTime() + ' ]' + '  Crypto with email name : ' + response.Asset.name + '****************')
+        console.log(util.createLogStatement('INFO', '  Crypto with email name : ' + response.Asset.name))
         text = text + `Current ` + response.Asset.name + ` price:   ` +
           parseFloat(response.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
@@ -58,10 +62,9 @@ const apiCall = async (cryptoName, min, max) => {
       console.log('Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
       console.log('*******************************************************************************************')
     })
-  if (index === 9 && text !== '') {
+
+  if (index === 8 && text !== '') {
+    console.log(util.createLogStatement('INFO', 'index 9 and text with something'))
     email.sendEmail(text)
-    index = 0
-    text = ''
   }
 }
-
