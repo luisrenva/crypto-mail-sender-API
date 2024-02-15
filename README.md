@@ -5,8 +5,6 @@ Monitor cryptos and send email according some parameters
 1.- npm install \
 2.- npm start
 
-\
-
 We need to add env.js locally with:
 
 process.env.EMAILS = 'example email' \
