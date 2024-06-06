@@ -58,9 +58,9 @@ const apiCall = async (cryptoName, min, max) => {
           parseFloat(response.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
     }).catch((error) => {
-      console.log('*******************************************************************************************')
-      console.log('Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
-      console.log('*******************************************************************************************')
+      console.error('*******************************************************************************************')
+      console.error('Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
+      console.error('*******************************************************************************************')
     })
 
   if (index === 8 && text !== '') {
