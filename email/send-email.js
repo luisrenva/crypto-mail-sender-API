@@ -20,7 +20,7 @@ exports.sendEmail = (body) => {
       // user: process.env.HOTMAIL_USER,
       // pass: process.env.HOTMAIL_PWD
       user: 'luis.renva@gmail.com',
-      pass: 'bxdf nycs vtay pdku'
+      pass: ''
     }
   })
 
