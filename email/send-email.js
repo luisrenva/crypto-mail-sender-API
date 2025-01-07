@@ -19,13 +19,13 @@ exports.sendEmail = (body) => {
     auth: {
       // user: process.env.HOTMAIL_USER,
       // pass: process.env.HOTMAIL_PWD
-      user: 'luis.renva@gmail.com',
-      pass: ''
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PWD
     }
   })
 
   var mailOptions = {
-    from: process.env.HOTMAIL_USER,
+    from: process.env.GMAIL_USER,
     to: process.env.ENVIRONMENT === 'PROD' ? process.env.EMAILS : 'lerv.1984@gmail.com',
     subject: 'Change in Crypto(s) !!!!!!',
     html: `Below the crypto(s) that meet the criterias: ` + `<br><br>`+ body
