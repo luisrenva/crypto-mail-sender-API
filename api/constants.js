@@ -1,6 +1,6 @@
 module.exports = {
   minBTC: 40000,
-  maxBTC: 72500,
+  maxBTC: 101500,
   minETC: 14,
   maxETC: 70,
   minDOGE: 0.050,
@@ -14,7 +14,7 @@ module.exports = {
   minBitCoinCash: 100,
   maxBitCoinCash: 1300,
   minXRP: 0.25,
-  maxXRP: 1.80,
+  maxXRP: 2.80,
   minMana: 0.10,
   maxMana: 5.50
 }

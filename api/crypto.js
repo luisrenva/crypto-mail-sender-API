@@ -53,14 +53,14 @@ const apiCall = async (cryptoName, min, max) => {
       const response = res.data.data
       index++
       if (response.market_data.price_usd !== null && (response.market_data.price_usd >= max || response.market_data.price_usd <= min)) {
-        console.log(util.createLogStatement('INFO', '  Crypto with email name : ' + response.Asset.name))
+        console.log(util.createLogStatement('INFO', 'Crypto with email name : ' + response.Asset.name))
         text = text + `Current ` + response.Asset.name + ` price:   ` +
           parseFloat(response.market_data.price_usd).toLocaleString(undefined, { minimumFractionDigits: 5 }) + `<br>`
       }
     }).catch((error) => {
-      console.error('*******************************************************************************************')
-      console.error('Error calling API ::::::  ' + cryptoName + '     '+JSON.stringify(error, null, 4))
-      console.error('*******************************************************************************************')
+      console.error('*************************************************************************************************************************************************************************************')
+      console.error('Error calling API : ' + cryptoName + '     ' +JSON.stringify(error, null, 4))
+      console.error('**************************************************************************************************************************************************************************************')
     })
 
   if (index === 8 && text !== '') {

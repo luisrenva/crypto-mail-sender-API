@@ -21,9 +21,12 @@ app.use(bodyParser.json())
 // all of our routes will be prefixed with /api
 app.use('/api', routes)
 // Schedule tasks to be run on the server.
-const scheduleTime = process.env.ENVIRONMENT === 'PROD' ? '0 0 */4 * * * *' : '0 */1 * * * * *'
+//* * * * *
+//0 */1 * * * * *
+const scheduleTime = process.env.ENVIRONMENT === 'PROD' ? '0 0 */4 * * * *' : '*/2 * * * *'
 const date = new Date()
 console.log(util.getTime('Starting app at: ', date))
+
 
 cron.schedule(scheduleTime, async () => {
   console.log(util.createLogStatement('INFO', 'Executing crypto calls'))
@@ -42,9 +45,9 @@ cron.schedule(scheduleTime, async () => {
 
 
 const port = process.env.PORT || 4000
-console.log('*********************************')
+console.log('*********************************************************************************************')
 console.log('Emails::::  ' + process.env.EMAILS)
-console.log('*********************************')
+console.log('*********************************************************************************************')
 // starting the server
 app.listen(port, () => {
   console.log('*********************************')
